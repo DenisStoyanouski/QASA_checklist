@@ -1,0 +1,94 @@
+Login 
+	SMOKE
+		Verify that cursor is focused on the “Username” text box on the page load (login page)
+		Verify that the login screen contains elements such as Username, Password, Sign in button, Forgot password link, and create an account link.
+		Verify that tab functionality is working properly or not
+		Verify that Enter/Tab key works as a substitute for the Sign-in button
+		Verify that all the fields such as Username, Password has a valid placeholder
+		Verify that the labels hides when the text field is in focus or filled (In case of the floating label)
+		Verify that the User is able to Login with Valid Credentials
+	CHRITICAL PATH
+		Verify that the User is not able to Login with an invalid Username and invalid Password
+		Verify that the User is not able to Login with a Valid Username and invalid Password
+		Verify that the User is not able to log in with an invalid Username and Valid Password
+		Verify that the User is not able to log in with a blank Username or Password
+		Verify that the User is not able to Login with inactive credentials
+		Verify that the login credentials, mainly password stores in a database in an encrypted format
+		Verify that clicking on the browser back button after successful login should not take the User to log out mode
+		Verify that clicking on the browser back button after successful logout should not take the User to a logged-in mode
+		Verify that the password is in encrypted form  (masked format) when entered
+		Verify the password can be copy-pasted. System shouldn’t allow users to copy paste password.
+		Verify that encrypted characters in the “Password” field should not allow deciphering if copied
+		Verify that the User should be able to login with the new password after changing the password
+		Verify that the user should not be able to login with the old password after changing the password
+		Verify that spaces should not be allowed before any password characters attempted
+		Verify whether the user is still logged in after a series of actions such as sign-in, close the browser, and reopen the application.
+		Verify that the ways to retrieve the password if the user forgets the password
+		Verify that the timeout of the login session (Session Timeout)
+		Verify that the logout link is redirected to login/home page
+		Verify that User is redirected to appropriate page after successful login
+		Verify that the User is redirected to the Forgot password page when clicking on the Forgot Password link
+		Verify that the User is redirected to the Create an account page when clicking on the Signup / Create an account link
+		Verify that validation message is displayed in the case when User leaves Username or Password as blank
+		Verify that validation message is displayed in case of exceeding the character limit of the Username and Password fields
+		Verify that validation message is displayed in case of entering special character in the Username and password fields
+		Verify whether the login form is revealing any security information by viewing the page source
+		Verify that the login page is vulnerable to SQL injection
+		Verify whether Cross-site scripting (XSS) vulnerability works on a login page. 
+		Verify the login page and all the fields in the login page are displaying without any break in different browsers
+	EXTENDED
+		+ valid email lowercase (e.g. graspy@gmail.ru) 
+		+ valid email uppercase (e.g. GRASPY@GMAIL.RU)
+		> local-part 
+		+ with number  (e.g. 123bip@gmail.ru)
+		+ with hyphen (e.g. 123-bip@gmail.ru)
+		+ with underscore (e.g. 123_bip@gmail.ru)
+		+ with dot (e.g. 123.bip@gmail.ru)
+		+ unnecesarry cuotes (e.g. "email"@domain.com)  - 
+		+ necesarry cuotes (e.g. "email..email"@domain.com)  -
+		> domain part
+		+ with number (e.g. bip@12345.com)
+		+ with hyphen (e.g. 123bip@g-mail.ru)
+		+ with underscore (e.g. 123bip@gma_il.ru)
+		+ with two dot (e.g. 123bip@g.mail.ru)
+		+ square brackets around ip address (e.g. email@[123.123.123.123]) - 
+		+ non-ACSII (e.g. nathan@学生优惠.com)
+		- no @ in address (e.g.	plainaddress)
+		- no address (e.g. @domain.com)
+		- garbage (e.g. #@%^%#$@#$@#.com)
+		- leading dot in address (e.g. .email@domain.com) -
+		- trailing do in address (e.g. email.@domain.com) -
+		- multiple dots (e.g. email..email@domain.com) -
+		- unicode charts in address (e.g. あいうえお@domain.com)
+		- leading dash in domain ( e.g. email@-domain.com)
+		- leading dot in domain (e.g. email@.domain.com)
+		- incorrect IP ( e.g. email@111.222.333.44444) -
+		- multiple dots in domain (e.g. email@domain..com)
+		- length local part +1 symbol (e.g. qwertyuioplkjhgfdsxcvbnmwrpjgaoigharihgprehgioherettuyhtdlgfdkgfi@domain.com) - -
+		- length domain part +1 symbol (e.g. bush@qwqtweyruityopiiiiiiiiiiiuuuuuuuuuuuuuuuuuuuuuuuuuyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyiiiiiiiiiiiiiiiiiiiiiiiisssssssssssssddddddddddddddddffffffffffffffffffhhhhhhhhhhhhhhhhhhggggggggggggggggggggjjjjjjjjjjjjjjjjjjjjjjjjjjjbbbbbbbbbbbbbbbbbbbbrrrrrrrrrrrrrrr.com
+
+Singup
+	SMOKE
+		Verify that the Registration form contains Username, First Name, Last Name, Password, Confirm Password, Email Id, Phone number, Date of birth, Gender, Location, Terms of use, Submit, Login (If you already have an account)
+		Verify that tab functionality is working properly or not
+		Verify that Enter/Tab key works as a substitute for the Submit button
+		Verify that all the fields such as Username, First Name, Last Name, Password and other fields have a valid placeholder
+		Verify that the labels float upward when the text field is in focus or filled (In case of floating label)
+		Verify that clicking on submit button after entering all the mandatory fields, submits the data to the server
+	CRITICAL PATH
+		Verify that system generates a validation message when clicking on submit button without filling all the mandatory fields.
+		Verify that entering blank spaces on mandatory fields lead to validation error
+		Verify that clicking on submit button by leaving optional fields, submits the data to the server without any validation error
+		Verify that case sensitivity of Username (usually Username field should not follow case sensitivity – ‘rajkumar’ & ‘RAJKUMAR’ acts same)
+		Verify that system generates a validation message when entering existing username
+		Verify that the character limit in all the fields (mainly username and password) based on business requirement
+		Verify that the username validation as per business requirement (in some application, username should not allow numeric and special characters)
+		Verify that the validation of all the fields are as per business requirement
+		Verify that the date of birth field should not allow the dates greater than current date (some applications have age limit of 18 in that case you have to validate whether the age is greater than or equal to 18 or not)
+		Verify that the validation of email field by entering incorrect email id
+		Verify that the validation of numeric fields by entering alphabets and characters
+		Verify that leading and trailing spaces are trimmed after clicking on submit button
+		Verify that the “terms and conditions” checkbox is unselected by default (depends on business logic, it may be selected or unselected)
+		Verify that the validation message is displayed when clicking on submit button without selecting “terms and conditions” checkbox
+		Verify that the password is in encrypted form when entered
+		Verify whether the password and confirm password are same or not
