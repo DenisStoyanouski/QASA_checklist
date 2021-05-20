@@ -23,6 +23,7 @@ LOGIN
 		Verify that the User is redirected to the Create a page when clicking on the Create a Page link
 		Verify that validation message is displayed in the case when User leaves Username or Password as blank
 		Verify whether the login form is revealing any security information by viewing the page source
+		Verify the login page and all the fields in the login page are displaying without any break in different browsers
 	EXTENDED
 		Verify that the timeout of the login session (Session Timeout)
 		Verify that the logout link is redirected to login/home page
@@ -32,9 +33,9 @@ LOGIN
 		Verify that the user should not be able to login with the old password after changing the password
 		Verify that spaces should not be allowed before any password characters attempted
 		Verify whether the user is still logged in after a series of actions such as sign-in, close the browser, and reopen the application.
-		Verify that the login page is vulnerable to SQL injection
-		Verify whether Cross-site scripting (XSS) vulnerability works on a login page. 
-		Verify the login page and all the fields in the login page are displaying without any break in different browsers
+		Verify that the login page is vulnerable to SQL injection (e.g. Robert'); DROP TABLE users;--)
+		Verify whether Cross-site scripting (XSS) vulnerability works on a login page. (e.g.Nice site,  I think I'll take it. <script>alert('Executing JS')</script>)
+		
 SINGUP
 	SMOKE
 		Verify that the Registration form contains First Name, Last Name, Reg_email, Password, Birthday, Gender, SignUp button
@@ -54,7 +55,22 @@ SINGUP
 		Verify that the “Gender” checkbox is unselected by default
 		Verify that the validation message is displayed when clicking on Sign Up button without selecting “Gender” checkbox
 		Verify that the password is in encrypted form when entered
+		Verify the login page and all the fields in the SignUp page are displaying without any break in different browsers
 	EXTENDED
+		First name
+			- SQL injection (e.g. Robert'); DROP TABLE Users;--)
+			- JS script injection (e.g. Nice site,  I think I'll take it. <script>alert('Executing JS')</script>)
+			- JS script(XSS) injection single quote (e.g. '-prompt()-')
+			- JS script(XSS) injection double quote (e.g. "-prompt()-")
+			- HTML parsing (e.g. <blink>Hello there</blink>)
+			- Broken HTML (e.g. <i><b>Bold</i></b>)
+		Last name
+			- SQL injection (e.g. Robert'); DROP TABLE Users;--)
+			- JS script injection (e.g. Nice site,  I think I'll take it. <script>alert('Executing JS')</script>)
+			- JS script(XSS) injection single quote (e.g. '-prompt()-')
+			- JS script(XSS) injection double quote (e.g. "-prompt()-")
+			- HTML parsing (e.g. <blink>Hello there</blink>)
+			- Broken HTML (e.g. <i><b>Bold</i></b>)
 		Reg_email field ( "-" negative, "+" positive)
 			email 
 				+ valid email lowercase (e.g. graspy@gmail.ru) 
@@ -96,15 +112,25 @@ SINGUP
 				- 10 digits (e.g. 1234567890)
 				- 12 digits (e.g. 123456789012)
 		Password (at least six combined numbers, letters and punctuation marks like ! and &)
-			
+				+ minlength 6 symbols (e.g. 1234&^) 
+				+ midlenght 50 symbols 
+				- 5 symbols (e.g. 1234&^)
 FORGOT PASSWORD	
 	SMOKE
-		Verify that cursor is focused on the “Username” text box on the page load
-		Verify that the login screen contains elements such as Username, Password, <Log In> button, <Forgot Password?> link, and <Creat New Account> button.
+		Verify that cursor is focused on the “Reg_email” text box on the page load
 		Verify that tab functionality is working properly or not
-		Verify that Enter/Tab key works as a substitute for the <Log In> button
-		Verify that all the fields such as Username, Password has a valid placeholder
+		Verify that Enter/Tab key works as a substitute for the <cancel> and <search> buttons
+		Verify that all the fields such as “Reg_email” has a valid placeholder
 		Verify that the labels hides when the text field is in focus or filled
-		Verify that the User is able to Login with Valid Credentials
-		Verify that User is redirected to appropriate page after successful login
+			Mobile phone search
+				Verify that the User is able to get cod via email 
+				Verify that the User is able to get cod via SMS
+			Email search
+				Verify that the User is able to get cod via Use my Google account 
+				Verify that the User is able to get cod via Send code via email
+		Verify that the User is able to change password by security code
+	CRITICAL PATH
+		Verify that the User is able to come back to forgot password page by <Not you?>
+		Verify that the User is able to come back to forgot password page by <No longer have access to these?>
+		
 		
